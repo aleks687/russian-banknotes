@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биографии банкнот | Рубль в деталях</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .biography-hero {
+            background: linear-gradient(135deg, var(--color-5000) 0%, #2c3e50 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .biography-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .biography-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .biography-filters {
+            background-color: var(--light-color);
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--secondary-color);
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .biography-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .biography-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .biography-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            padding: 25px;
+            color: white;
+            position: relative;
+            min-height: 180px;
+        }
+        
+        .card-header[data-color="5000"] { background-color: var(--color-5000); }
+        .card-header[data-color="2000"] { background-color: var(--color-2000); }
+        .card-header[data-color="1000"] { background-color: var(--color-1000); }
+        .card-header[data-color="500"] { background-color: var(--color-500); }
+        .card-header[data-color="200"] { background-color: var(--color-200); }
+        .card-header[data-color="100"] { background-color: var(--color-100); }
+        
+        .denomination-badge {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .currency-symbol {
+            font-size: 2rem;
+            opacity: 0.9;
+        }
+        
+        .city-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .release-date {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .symbols-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .symbols-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .symbols-list i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        
+        .historical-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: auto;
+        }
+        
+        .historical-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .historical-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .timeline-section {
+            margin-top: 60px;
+        }
+        
+        .comparison-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .biography-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .biography-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-ruble-sign"></i>
+                    <span>Рубль в деталях</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Коллекция</a></li>
+                    <li><a href="biographies.html" class="active">Биографии</a></li>
+                    <li><a href="index.html#history">История</a></li>
+                    <li><a href="index.html#protection">Защита</a></li>
+                </ul>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой-секция биографий -->
+    <section class="biography-hero">
+        <div class="container">
+            <h1>Биографии банкнот</h1>
+            <p>Каждая российская банкнота — это история города, символ эпохи и произведение искусства. Узнайте о символике, архитектуре и исторических личностях, запечатлённых на наших деньгах.</p>
+            <a href="#biographies" class="btn-primary">
+                <i class="fas fa-book-open"></i>
+                Изучить биографии
+            </a>
+        </div>
+    </section>
+
+    <!-- Фильтры -->
+    <section class="biography-filters">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Все банкноты</button>
+                <button class="filter-btn" data-filter="5000">5000 ₽</button>
+                <button class="filter-btn" data-filter="2000">2000 ₽</button>
+                <button class="filter-btn" data-filter="1000">1000 ₽</button>
+                <button class="filter-btn" data-filter="500">500 ₽</button>
+                <button class="filter-btn" data-filter="200">200 ₽</button>
+                <button class="filter-btn" data-filter="100">100 ₽</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сетка с биографиями -->
+    <section id="biographies" class="biography-section">
+        <div class="container">
+            <h2 class="section-title">Краткие биографии</h2>
+            <p class="section-subtitle">Нажмите на банкноту для подробного изучения</p>
+            
+            <div class="biography-grid">
+                <!-- Биография 5000 рублей -->
+                <div class="biography-card" data-category="5000">
+                    <div class="card-header" data-color="5000">
+                        <div class="denomination-badge">5000<span class="currency-symbol">₽</span></div>
+                        <div class="city-name">Хабаровск</div>
+                        <div class="release-date">С 2006 года</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Символ Дальнего Востока</h3>
+                        <ul class="symbols-list">
+                            <li><i class="fas fa-monument"></i> <strong>Памятник Н.Н. Муравьёву-Амурскому</strong> — основателю Хабаровска, российскому государственному деятелю</li>
+                            <li><i class="fas fa-bridge"></i> <strong>Мост через Амур</strong> — часть Транссибирской магистрали, инженерный шедевр 1916 года</li>
+                            <li><i class="fas fa-landmark"></i> <strong>Герб Хабаровска</strong> — изображён в нижней части банкноты</li>
+                        </ul>
+                        <div class="historical-info">
+                            <h4><i class="fas fa-history"></i> Исторический контекст</h4>
+                            <p>Банкнота выпущена в 2006 году. Хабаровск выбран как ключевой город Дальнего Востока, символизирующий российское присутствие в Азиатско-Тихоокеанском регионе.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Биография 2000 рублей -->
+                <div class="biography-card" data-category="2000">
+                    <div class="card-header" data-color="2000">
+                        <div class="denomination-badge">2000<span class="currency-symbol">₽</span></div>
+                        <div class="city-name">Владивосток</div>
+                        <div class="release-date">С 2017 года</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Ворота в Азию</h3>
+                        <ul class="symbols-list">
+                            <li><i class="fas fa-bridge"></i> <strong>Русский мост</strong> — самый длинный вантовый мост в мире, символ современной России</li>
+                            <li><i class="fas fa-university"></i> <strong>Здание ВГУЭС</strong> — главный корпус Владивостокского государственного университета</li>
+                            <li><i class="fas fa-map-marked-alt"></i> <strong>Карта Дальнего Востока</strong> — изображена на оборотной стороне</li>
+                        </ul>
+                        <div class="historical-info">
+                            <h4><i class="fas fa-history"></i> Исторический контекст</h4>
+                            <p>Банкнота введена в 2017 году после присоединения Крыма. Символизирует поворот России на Восток и развитие Дальнего Востока.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Биография 1000 рублей -->
+                <div class="biography-card" data-category="1000">
+                    <div class="card-header" data-color="1000">
+                        <div class="denomination-badge">1000<span class="currency-symbol">₽</span></div>
+                        <div class="city-name">Ярославль</div>
+                        <div class="release-date">С 2001 года</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Колыбель русской государственности</h3>
+                        <ul class="symbols-list">
+                            <li><i class="fas fa-monument"></i> <strong>Памятник Ярославу Мудрому</strong> — основателю города, изображён с макетом храма и мечом</li>
+                            <li><i class="fas fa-church"></i> <strong>Церковь Иоанна Предтечи</strong> — шедевр ярославской архитектуры XVII века</li>
+                            <li><i class="fas fa-flag"></i> <strong>Герб Ярославля</strong> — медведь с секирой, один из старейших городских символов</li>
+                        </ul>
+                        <div class="historical-info">
+                            <h4><i class="fas fa-history"></i> Исторический контекст</h4>
+                            <p>Ярославль — один из древнейших городов России, входящий в Золотое кольцо. Банкнота символизирует богатство русской истории и культуры.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Биография 500 рублей -->
+                <div class="biography-card" data-category="500">
+                    <div class="card-header" data-color="500">
+                        <div class="denomination-badge">500<span class="currency-symbol">₽</span></div>
+                        <div class="city-name">Архангельск</div>
+                        <div class="release-date">С 1997 года</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Морские ворота России</h3>
+                        <ul class="symbols-list">
+                            <li><i class="fas fa-monument"></i> <strong>Памятник Петру I</strong> — основателю русского флота, смотрящий в сторону моря</li>
+                            <li><i class="fas fa-ship"></i> <strong>Парусник и морской вокзал</strong> — символы морской славы Архангельска</li>
+                            <li><i class="fas fa-archway"></i> <strong>Соловецкий монастырь</strong> — духовный центр Русского Севера</li>
+                        </ul>
+                        <div class="historical-info">
+                            <h4><i class="fas fa-history"></i> Исторический контекст</h4>
+                            <p>Архангельск — первый морской порт России, основанный по указу Ивана Грозного в 1584 году. Символизирует морскую мощь и северные рубежи страны.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Биография 200 рублей -->
+                <div class="biography-card" data-category="200">
+                    <div class="card-header" data-color="200">
+                        <div class="denomination-badge">200<span class="currency-symbol">₽</span></div>
+                        <div class="city-name">Севастополь</div>
+                        <div class="release-date">С 2017 года</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Город морской славы</h3>
+                        <ul class="symbols-list">
+                            <li><i class="fas fa-monument"></i> <strong>Памятник затопленным кораблям</strong> — символ героической обороны Севастополя в 1854-1855 гг.</li>
+                            <li><i class="fas fa-landmark"></i> <strong>Херсонес Таврический</strong> — древнегреческий полис, объект Всемирного наследия ЮНЕСКО</li>
+                            <li><i class="fas fa-map"></i> <strong>Карта Крыма</strong> — изображена на оборотной стороне банкноты</li>
+                        </ul>
+                        <div class="historical-info">
+                            <h4><i class="fas fa-history"></i> Исторический контекст</h4>
+                            <p>Банкнота выпущена в 2017 году как символ возвращения Крыма в состав России. Севастополь — город-герой, база Черноморского флота.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Биография 100 рублей -->
+                <div class="biography-card" data-category="100">
+                    <div class="card-header" data-color="100">
+                        <div class="denomination-badge">100<span class="currency-symbol">₽</span></div>
+                        <div class="city-name">Москва</div>
+                        <div class="release-date">С 1997 года</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Сердце России</h3>
+                        <ul class="symbols-list">
+                            <li><i class="fas fa-theater-masks"></i> <strong>Большой театр</strong> — один из главных символов русской культуры</li>
+                            <li><i class="fas fa-chariot"></i> <strong>Квадрига Аполлона</strong> — скульптурная группа на портике Большого театра</li>
+                            <li><i class="fas fa-archway"></i> <strong>Фасад Большого театра</strong> — архитектурный шедевр в стиле классицизма</li>
+                        </ul>
+                        <div class="historical-info">
+                            <h4><i class="fas fa-history"></i> Исторический контекст</h4>
+                            <p>Банкнота посвящена столице России. Большой театр, основанный в 1776 году, является символом русского театрального искусства и культурного наследия.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция сравнения -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Сравнительная таблица</h2>
+            <p class="section-subtitle">Основные характеристики всех банкнот</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Номинал</th>
+                            <th>Город</th>
+                            <th>Цвет</th>
+                            <th>Размеры (мм)</th>
+                            <th>Год выпуска</th>
+                            <th>Основной символ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>5000 ₽</strong></td>
+                            <td>Хабаровск</td>
+                            <td><span class="color-swatch" style="background: var(--color-5000);"></span> Красно-коричневый</td>
+                            <td>157 × 69</td>
+                            <td>2006</td>
+                            <td>Мост через Амур</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2000 ₽</strong></td>
+                            <td>Владивосток</td>
+                            <td><span class="color-swatch" style="background: var(--color-2000);"></span> Сине-голубой</td>
+                            <td>157 × 69</td>
+                            <td>2017</td>
+                            <td>Русский мост</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1000 ₽</strong></td>
+                            <td>Ярославль</td>
+                            <td><span class="color-swatch" style="background: var(--color-1000);"></span> Сине-зелёный</td>
+                            <td>157 × 69</td>
+                            <td>2001</td>
+                            <td>Памятник Ярославу Мудрому</td>
+                        </tr>
+                        <tr>
+                            <td><strong>500 ₽</strong></td>
+                            <td>Архангельск</td>
+                            <td><span class="color-swatch" style="background: var(--color-500);"></span> Фиолетово-синий</td>
+                            <td>150 × 65</td>
+                            <td>1997</td>
+                            <td>Памятник Петру I</td>
+                        </tr>
+                        <tr>
+                            <td><strong>200 ₽</strong></td>
+                            <td>Севастополь</td>
+                            <td><span class="color-swatch" style="background: var(--color-200);"></span> Зелёный</td>
+                            <td>150 × 65</td>
+                            <td>2017</td>
+                            <td>Памятник затопленным кораблям</td>
+                        </tr>
+                        <tr>
+                            <td><strong>100 ₽</strong></td>
+                            <td>Москва</td>
+                            <td><span class="color-swatch" style="background: var(--color-100);"></span> Коричнево-зелёный</td>
+                            <td>150 × 65</td>
+                            <td>1997</td>
+                            <td>Большой театр</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Таймлайн эволюции -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Эволюция дизайна</h2>
+            <p class="section-subtitle">Как менялись российские банкноты с 1997 года</p>
+            
+            <div style="max-width: 800px; margin: 0 auto; background: #f8f9fa; padding: 30px; border-radius: 10px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px;">
+                    <i class="fas fa-chart-line"></i> Основные этапы
+                </h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <i class="fas fa-circle" style="color: var(--secondary-color); position: absolute; left: 0; top: 5px;"></i>
+                        <strong>1997:</strong> Деноминация рубля. Появление современной серии с городами России
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <i class="fas fa-circle" style="color: var(--secondary-color); position: absolute; left: 0; top: 5px;"></i>
+                        <strong>2001:</strong> Выпуск банкноты 1000 рублей с Ярославлем
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <i class="fas fa-circle" style="color: var(--secondary-color); position: absolute; left: 0; top: 5px;"></i>
+                        <strong>2006:</strong> Введение банкноты 5000 рублей с Хабаровском
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <i class="fas fa-circle" style="color: var(--secondary-color); position: absolute; left: 0; top: 5px;"></i>
+                        <strong>2017:</strong> Историческое событие — выпуск банкнот 200 и 2000 рублей
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <i class="fas fa-circle" style="color: var(--secondary-color); position: absolute; left: 0; top: 5px;"></i>
+                        <strong>2022:</strong> Модификация дизайна и усиление защитных элементов
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-ruble-sign"></i>
+                        <span>Рубль в деталях</span>
+                    </a>
+                    <p>Образовательный проект о банкнотах России</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="index.html">Коллекция</a></li>
+                        <li><a href="biographies.html" class="active">Биографии</a></li>
+                        <li><a href="index.html#history">История</a></li>
+                        <li><a href="index.html#protection">Защита</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer">
+                    <h4>Знаете ли вы?</h4>
+                    <p>Каждая российская банкнота имеет более 10 степеней защиты. Дизайн разрабатывается годами и утверждается на самом высоком уровне.</p>
+                    <p>Официальная информация: <a href="https://www.cbr.ru" target="_blank">Банк России</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Рубль в деталях. Все права защищены.</p>
+                <p>Это учебный проект, созданный на основе открытых данных.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Фильтрация карточек
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const biographyCards = document.querySelectorAll('.biography-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем активный класс у всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем активный класс нажатой кнопке
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Показываем/скрываем карточки
+                    biographyCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Анимация появления карточек
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            biographyCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

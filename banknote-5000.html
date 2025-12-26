@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5000 рублей | Хабаровск | Рубль в деталях</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-ruble-sign"></i>
+                    <span>Рубль в деталях</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Коллекция</a></li>
+                    <li><a href="index.html#history">История</a></li>
+                    <li><a href="index.html#protection">Защита</a></li>
+                    <li><a href="index.html#quiz">Тест</a></li>
+                </ul>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="index.html"><i class="fas fa-home"></i> Коллекция</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>5000 рублей</span>
+        </div>
+    </section>
+
+    <!-- Герой-секция банкноты -->
+    <section class="banknote-hero">
+        <div class="container">
+            <div class="banknote-header">
+                <h1 class="banknote-title">5000 рублей</h1>
+                <p class="banknote-subtitle">Хабаровск — символ дальневосточной мощи</p>
+                <div class="banknote-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Год выпуска: <strong>2006, мод. 2022</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-ruler"></i>
+                        <span>Размер: <strong>157 × 69 мм</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Цвета: <strong>Красно-коричневые</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="banknote-visual">
+                <div class="banknote-3d">
+                    <div class="banknote-front" id="banknote-image">
+                        <div class="denomination-large">5000</div>
+                        <div class="currency-large">₽</div>
+                        <div class="design-elements">
+                            <div class="element monument" data-tooltip="Памятник Н.Н. Муравьёву-Амурскому">
+                                <i class="fas fa-monument"></i>
+                            </div>
+                            <div class="element city" data-tooltip="Герб Хабаровска">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div class="element hologram" data-tooltip="Голографическая полоса">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banknote-controls">
+                        <button class="btn-rotate" id="rotate-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            Перевернуть
+                        </button>
+                        <button class="btn-zoom" id="zoom-btn">
+                            <i class="fas fa-search-plus"></i>
+                            Увеличить
+                        </button>
+                    </div>
+                </div>
+
+                <div class="banknote-details">
+                    <div class="details-tabs">
+                        <button class="tab-btn active" data-tab="obverse">Аверс (лицевая сторона)</button>
+                        <button class="tab-btn" data-tab="reverse">Реверс (оборотная сторона)</button>
+                        <button class="tab-btn" data-tab="facts">Факты</button>
+                    </div>
+
+                    <div class="tab-content active" id="obverse">
+                        <h3><i class="fas fa-landmark"></i> Лицевая сторона</h3>
+                        <ul class="details-list">
+                            <li><strong>Памятник Н.Н. Муравьёву-Амурскому</strong> — генерал-губернатору Восточной Сибири, основателю Хабаровска</li>
+                            <li><strong>Герб Хабаровска</strong> — расположен в нижней части банкноты</li>
+                            <li><strong>Номинал</strong> — цифры 5000 в углах</li>
+                            <li><strong>Защитная нить</strong> — видимая на просвет</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="reverse">
+                        <h3><i class="fas fa-bridge"></i> Оборотная сторона</h3>
+                        <ul class="details-list">
+                            <li><strong>Мост через реку Амур</strong> — знаменитый хабаровский мост, часть Транссибирской магистрали</li>
+                            <li><strong>Эмблема Банка России</strong> — двуглавый орёл</li>
+                            <li><strong>Номинал прописью</strong> — "ПЯТЬ ТЫСЯЧ РУБЛЕЙ"</li>
+                            <li><strong>Год выпуска</strong> — указан в нижней части</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="facts">
+                        <h3><i class="fas fa-lightbulb"></i> Интересные факты</h3>
+                        <ul class="details-list">
+                            <li>Банкнота введена в обращение 31 июля 2006 года</li>
+                            <li>Хабаровск выбран как ключевой город Дальнего Востока</li>
+                            <li>Мост на банкноте изображён с российской стороны реки Амур</li>
+                            <li>При ультрафиолетовом свете проявляются дополнительные защитные элементы</li>
+                            <li>Это самая крупная по номиналу банкнота регулярного выпуска в России</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Защитные элементы -->
+    <section class="security">
+        <div class="container">
+            <h2 class="section-title">Защитные элементы</h2>
+            <div class="security-grid">
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Водяной знак</h3>
+                    <p>При просвете виден портрет Муравьёва-Амурского и число 5000</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Голограмма</h3>
+                    <p>При наклоне меняет изображение с номинала на эмблему Банка России</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Микротекст</h3>
+                    <p>Повторяющаяся надпись "ЦБР 5000", видимая под лупой</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Скрытое изображение</h3>
+                    <p>При определённом угле видны буквы "РР" (российский рубль)</p>
+                </div>
+            </div>
+            
+            <div class="security-check">
+                <h3><i class="fas fa-check-circle"></i> Как проверить подлинность?</h3>
+                <ol class="check-list">
+                    <li><strong>На просвет:</strong> ищите водяной знак и защитную нить</li>
+                    <li><strong>Наклоните:</strong> голограмма должна менять изображение</li>
+                    <li><strong>Потрогайте:</strong> рельефные надписи "БИЛЕТ БАНКА РОССИИ"</li>
+                    <li><strong>Под лупой:</strong> найдите микротекст по краям банкноты</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навигация между банкнотами -->
+    <section class="banknote-navigation">
+        <div class="container">
+            <a href="#" class="nav-prev">
+                <i class="fas fa-arrow-left"></i>
+                <div>
+                    <span>Предыдущая</span>
+                    <h4>2000 рублей</h4>
+                </div>
+            </a>
+            <a href="index.html" class="nav-back">
+                <i class="fas fa-th-large"></i>
+                Вся коллекция
+            </a>
+            <a href="#" class="nav-next">
+                <div>
+                    <span>Следующая</span>
+                    <h4>1000 рублей</h4>
+                </div>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-ruble-sign"></i>
+                        <span>Рубль в деталях</span>
+                    </a>
+                    <p>Образовательный проект о банкнотах России</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="index.html">Коллекция</a></li>
+                        <li><a href="index.html#history">История</a></li>
+                        <li><a href="index.html#protection">Защита</a></li>
+                        <li><a href="index.html#quiz">Тест</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer">
+                    <h4>Информация</h4>
+                    <p>Сайт создан в образовательных целях. Изображения банкнот являются стилизованными представлениями.</p>
+                    <p>Официальная информация: <a href="https://www.cbr.ru" target="_blank">Банк России</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Рубль в деталях. Все права защищены.</p>
+                <p>Это учебный проект, созданный на основе открытых данных.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

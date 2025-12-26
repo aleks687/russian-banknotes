@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рубль в деталях | Биография банкнот России</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-ruble-sign"></i>
+                    <span>Рубль в деталях</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Коллекция</a></li>
+                    <li><a href="#history">История</a></li>
+                    <li><a href="#protection">Защита</a></li>
+                    <li><a href="#quiz">Тест</a></li>
+                </ul>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Каждая банкнота — путешествие по России</h1>
+                <p class="hero-subtitle">Исследуйте города, историю и скрытые детали современных российских купюр</p>
+                <a href="#collection" class="btn-primary">
+                    <i class="fas fa-search"></i>
+                    Начать исследование
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Коллекция банкнот -->
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2 class="section-title">Коллекция банкнот</h2>
+            <p class="section-subtitle">Выберите банкноту для изучения</p>
+            
+            <div class="banknotes-grid">
+                <!-- Банкнота 5000 руб -->
+                <a href="banknote-5000.html" class="banknote-card" data-color="#4a6572">
+                    <div class="banknote-preview">
+                        <div class="banknote-image">
+                            <div class="denomination">5000</div>
+                            <div class="currency">₽</div>
+                        </div>
+                    </div>
+                    <div class="banknote-info">
+                        <h3>5000 рублей</h3>
+                        <p class="city">Хабаровск</p>
+                        <div class="features">
+                            <span class="feature"><i class="fas fa-landmark"></i> Памятник Муравьёву-Амурскому</span>
+                            <span class="feature"><i class="fas fa-bridge"></i> Мост через Амур</span>
+                        </div>
+                        <div class="card-action">
+                            <span>Исследовать</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Банкнота 2000 руб -->
+                <a href="#" class="banknote-card" data-color="#5d8aa8">
+                    <div class="banknote-preview">
+                        <div class="banknote-image">
+                            <div class="denomination">2000</div>
+                            <div class="currency">₽</div>
+                        </div>
+                    </div>
+                    <div class="banknote-info">
+                        <h3>2000 рублей</h3>
+                        <p class="city">Владивосток</p>
+                        <div class="features">
+                            <span class="feature"><i class="fas fa-bridge"></i> Русский мост</span>
+                            <span class="feature"><i class="fas fa-university"></i> Здание ВГУЭС</span>
+                        </div>
+                        <div class="card-action">
+                            <span>Исследовать</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Банкнота 1000 руб -->
+                <a href="#" class="banknote-card" data-color="#9c8c7a">
+                    <div class="banknote-preview">
+                        <div class="banknote-image">
+                            <div class="denomination">1000</div>
+                            <div class="currency">₽</div>
+                        </div>
+                    </div>
+                    <div class="banknote-info">
+                        <h3>1000 рублей</h3>
+                        <p class="city">Ярославль</p>
+                        <div class="features">
+                            <span class="feature"><i class="fas fa-monument"></i> Памятник Ярославу Мудрому</span>
+                            <span class="feature"><i class="fas fa-church"></i> Церковь Иоанна Предтечи</span>
+                        </div>
+                        <div class="card-action">
+                            <span>Исследовать</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Банкнота 500 руб -->
+                <a href="#" class="banknote-card" data-color="#7c9d65">
+                    <div class="banknote-preview">
+                        <div class="banknote-image">
+                            <div class="denomination">500</div>
+                            <div class="currency">₽</div>
+                        </div>
+                    </div>
+                    <div class="banknote-info">
+                        <h3>500 рублей</h3>
+                        <p class="city">Архангельск</p>
+                        <div class="features">
+                            <span class="feature"><i class="fas fa-monument"></i> Памятник Петру I</span>
+                            <span class="feature"><i class="fas fa-ship"></i> Соловецкий монастырь</span>
+                        </div>
+                        <div class="card-action">
+                            <span>Исследовать</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Банкнота 200 руб -->
+                <a href="#" class="banknote-card" data-color="#a8c4a9">
+                    <div class="banknote-preview">
+                        <div class="banknote-image">
+                            <div class="denomination">200</div>
+                            <div class="currency">₽</div>
+                        </div>
+                    </div>
+                    <div class="banknote-info">
+                        <h3>200 рублей</h3>
+                        <p class="city">Севастополь</p>
+                        <div class="features">
+                            <span class="feature"><i class="fas fa-monument"></i> Памятник затопленным кораблям</span>
+                            <span class="feature"><i class="fas fa-landmark"></i> Херсонес Таврический</span>
+                        </div>
+                        <div class="card-action">
+                            <span>Исследовать</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Банкнота 100 руб -->
+                <a href="#" class="banknote-card" data-color="#c4d4e2">
+                    <div class="banknote-preview">
+                        <div class="banknote-image">
+                            <div class="denomination">100</div>
+                            <div class="currency">₽</div>
+                        </div>
+                    </div>
+                    <div class="banknote-info">
+                        <h3>100 рублей</h3>
+                        <p class="city">Москва</p>
+                        <div class="features">
+                            <span class="feature"><i class="fas fa-theater-masks"></i> Большой театр</span>
+                            <span class="feature"><i class="fas fa-chariot"></i> Квадрига Аполлона</span>
+                        </div>
+                        <div class="card-action">
+                            <span>Исследовать</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Краткая история -->
+    <section id="history" class="history-preview">
+        <div class="container">
+            <h2 class="section-title">История российских денег</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1997</div>
+                    <div class="timeline-content">
+                        <h3>Деноминация и новые купюры</h3>
+                        <p>Появление современной серии банкнот с изображениями городов России</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <h3>Выпуск банкнот 200 и 2000 рублей</h3>
+                        <p>Новые номиналы с символами Крыма и Дальнего Востока</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Модификация банкнот</h3>
+                        <p>Обновление дизайна и усиление защитных элементов</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn-secondary">
+                <i class="fas fa-history"></i>
+                Узнать больше истории
+            </a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-ruble-sign"></i>
+                        <span>Рубль в деталях</span>
+                    </a>
+                    <p>Образовательный проект о банкнотах России</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="index.html">Коллекция</a></li>
+                        <li><a href="#history">История</a></li>
+                        <li><a href="#protection">Защита</a></li>
+                        <li><a href="#quiz">Тест</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer">
+                    <h4>Информация</h4>
+                    <p>Сайт создан в образовательных целях. Изображения банкнот являются стилизованными представлениями.</p>
+                    <p>Официальная информация: <a href="https://www.cbr.ru" target="_blank">Банк России</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Рубль в деталях. Все права защищены.</p>
+                <p>Это учебный проект, созданный на основе открытых данных.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

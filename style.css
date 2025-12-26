@@ -1,0 +1,549 @@
+/* Базовые стили */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #f8f9fa;
+    --dark-color: #2c3e50;
+    --gray-color: #95a5a6;
+    --success-color: #27ae60;
+    
+    /* Цвета банкнот */
+    --color-100: #c4d4e2;
+    --color-200: #a8c4a9;
+    --color-500: #7c9d65;
+    --color-1000: #9c8c7a;
+    --color-2000: #5d8aa8;
+    --color-5000: #4a6572;
+    
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ===== ОСНОВНОЙ ФОН САЙТА ===== */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Градиентный фон для всего сайта */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(231, 76, 60, 0.05) 100%),
+        radial-gradient(circle at 20% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.03) 10px,
+            rgba(255, 255, 255, 0.03) 20px
+        );
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Текстура денежных элементов на фоне */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233498db' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0c33.137 0 60 26.863 60 60 0 33.137-26.863 60-60 60-33.137 0-60-26.863-60-60C0 26.863 26.863 0 60 0zm0 20c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40z' fill='%232c3e50' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 200px 200px, 300px 300px;
+    background-position: 0 0, 100px 100px;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== ОСНОВНЫЕ СЕКЦИИ С ФОНАМИ ===== */
+section {
+    padding: 60px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Белый полупрозрачный фон для контента */
+.header,
+.hero,
+.collection,
+.history-preview,
+.footer,
+.banknote-hero,
+.security,
+.banknote-navigation,
+.biography-hero,
+.biography-filters,
+.biography-section,
+.comparison-section,
+.timeline-section {
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Эффект подъёма при наведении на секции */
+.collection:hover,
+.biography-section:hover,
+.comparison-section:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+/* ===== УЛУЧШЕННЫЙ HEADER ===== */
+.header {
+    background: linear-gradient(135deg, 
+        rgba(44, 62, 80, 0.95) 0%, 
+        rgba(52, 152, 219, 0.9) 100%);
+    backdrop-filter: blur(15px);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== HERO СЕКЦИИ ===== */
+.hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.05' d='M0,0 L100,0 L100,100 L0,100 Z'/%3E%3C/svg%3E");
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 40px;
+    border-radius: 0 0 30px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0C44.8 0 0 44.8 0 100c0 55.2 44.8 100 100 100s100-44.8 100-100c0-55.2-44.8-100-100-100zm0 20c44.2 0 80 35.8 80 80s-35.8 80-80 80-80-35.8-80-80 35.8-80 80-80z' fill='%23FFFFFF' fill-opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 200px;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* ===== КАРТОЧКИ БАНКНОТ С ФОНАМИ ===== */
+.banknotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.banknote-card {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+}
+
+.banknote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0) 100%);
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.banknote-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.banknote-preview {
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banknote-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        var(--card-color, var(--color-5000)) 0%,
+        color-mix(in srgb, var(--card-color, var(--color-5000)) 70%, white) 100%);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.banknote-image {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.denomination {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+}
+
+.currency {
+    font-size: 3rem;
+    color: white;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* Цвета для разных номиналов */
+.banknote-card[data-color="#4a6572"] .banknote-preview::before {
+    background: linear-gradient(45deg, var(--color-5000) 0%, #6a8a9c 100%);
+}
+
+.banknote-card[data-color="#5d8aa8"] .banknote-preview::before {
+    background: linear-gradient(45deg, var(--color-2000) 0%, #7da6c8 100%);
+}
+
+.banknote-card[data-color="#9c8c7a"] .banknote-preview::before {
+    background: linear-gradient(45deg, var(--color-1000) 0%, #b8a897 100%);
+}
+
+.banknote-card[data-color="#7c9d65"] .banknote-preview::before {
+    background: linear-gradient(45deg, var(--color-500) 0%, #9cb889 100%);
+}
+
+.banknote-card[data-color="#a8c4a9"] .banknote-preview::before {
+    background: linear-gradient(45deg, var(--color-200) 0%, #c6e0c7 100%);
+}
+
+.banknote-card[data-color="#c4d4e2"] .banknote-preview::before {
+    background: linear-gradient(45deg, var(--color-100) 0%, #e0e9f2 100%);
+}
+
+/* ===== СТРАНИЦА БАНКНОТЫ 5000₽ ===== */
+.banknote-hero {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(240, 245, 255, 0.95) 100%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 40px;
+    padding: 60px 0;
+}
+
+/* ===== СЕКЦИЯ БЕЗОПАСНОСТИ ===== */
+.security {
+    background: linear-gradient(135deg, 
+        rgba(248, 249, 250, 0.95) 0%,
+        rgba(233, 236, 239, 0.95) 100%);
+    border-radius: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.security-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.security-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.15);
+    border-color: var(--secondary-color);
+}
+
+/* ===== СТРАНИЦА БИОГРАФИЙ ===== */
+.biography-hero {
+    background: linear-gradient(135deg, 
+        rgba(74, 101, 114, 0.9) 0%,
+        rgba(44, 62, 80, 0.9) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E");
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 40px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: linear-gradient(135deg, 
+        rgba(44, 62, 80, 0.95) 0%,
+        rgba(30, 40, 52, 0.95) 100%);
+    color: white;
+    padding: 60px 0 30px;
+    margin-top: 60px;
+    border-radius: 30px 30px 0 0;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--color-100), 
+        var(--color-200),
+        var(--color-500),
+        var(--color-1000),
+        var(--color-2000),
+        var(--color-5000));
+}
+
+/* ===== КНОПКИ ===== */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: white;
+    border-color: transparent;
+}
+
+/* ===== ЗАГОЛОВКИ ===== */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .banknotes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .denomination {
+        font-size: 3rem;
+    }
+    
+    .security {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ===== */
+/* Парящие элементы */
+@keyframes floatElement {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.security-item,
+.banknote-card {
+    animation: floatElement 3s ease-in-out infinite;
+}
+
+.security-item:nth-child(2) { animation-delay: 0.5s; }
+.security-item:nth-child(3) { animation-delay: 1s; }
+.security-item:nth-child(4) { animation-delay: 1.5s; }
+
+/* Подсветка активных элементов */
+.banknote-card:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
+/* Градиентные границы для карточек */
+.banknote-card,
+.security-item,
+.biography-card {
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+
+.banknote-card::after,
+.security-item::after,
+.biography-card::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, 
+        var(--secondary-color), 
+        var(--accent-color), 
+        var(--secondary-color));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.banknote-card:hover::after,
+.security-item:hover::after,
+.biography-card:hover::after {
+    opacity: 1;
+}
